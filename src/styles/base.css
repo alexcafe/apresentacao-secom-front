@@ -1,0 +1,433 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--tinta);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  overflow-x: hidden;
+  transition: background-color 0.9s var(--ease), color 0.9s var(--ease);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- ambiente: blobs fixos + fio condutor ---------- */
+.ambiente {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.ambiente .halo {
+  position: absolute;
+  width: 70vmax;
+  height: 70vmax;
+  border-radius: 50%;
+  opacity: 0.55;
+  will-change: transform;
+}
+.halo.h1 {
+  background: radial-gradient(circle, rgba(79, 179, 160, 0.45), rgba(79, 179, 160, 0) 62%);
+  left: -20vmax;
+  top: -25vmax;
+}
+.halo.h2 {
+  background: radial-gradient(circle, rgba(10, 74, 133, 0.35), rgba(10, 74, 133, 0) 60%);
+  right: -25vmax;
+  bottom: -30vmax;
+}
+.halo.h3 {
+  background: radial-gradient(circle, rgba(31, 138, 85, 0.28), rgba(31, 138, 85, 0) 60%);
+  right: 10vmax;
+  top: 20vmax;
+  width: 45vmax;
+  height: 45vmax;
+}
+.ambiente svg.formas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.formas path {
+  will-change: transform;
+}
+
+.fio {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+}
+.fio path {
+  fill: none;
+  stroke: var(--salvia);
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.55;
+}
+.fio circle {
+  fill: var(--salvia);
+}
+
+/* ---------- cenas ---------- */
+main {
+  position: relative;
+  z-index: 2;
+}
+
+.scene {
+  position: relative;
+  /* altura total vem do motor: 100vh + passos */
+}
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  display: grid;
+  align-items: center;
+  padding: clamp(24px, 6vh, 80px) clamp(20px, 8vw, 140px);
+}
+
+.scene::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: var(--fundo-cena, transparent);
+}
+.scene[data-tone='dark'] {
+  --fundo-cena: var(--noite);
+  --onda: var(--noite);
+  color: var(--fg);
+}
+.scene[data-tone='menta'] {
+  --fundo-cena: var(--menta);
+  --onda: var(--menta);
+}
+.stage {
+  z-index: 2;
+}
+
+/* ondas: recortam a borda da cena com a cor de fora (página clara) */
+.onda {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: clamp(60px, 9vw, 150px);
+  pointer-events: none;
+  z-index: 0;
+}
+.onda.topo {
+  top: -1px;
+}
+.onda.base {
+  bottom: -1px;
+}
+.onda path {
+  fill: var(--nevoa);
+}
+
+/* ---------- tipografia ---------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--salvia);
+}
+.eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+}
+.titulo {
+  font-size: var(--fs-h2);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  margin-top: 0.35em;
+}
+.titulo em {
+  font-style: normal;
+  background: var(--grad-marca);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.scene[data-tone='dark'] .titulo em {
+  background: linear-gradient(120deg, #8fd3ff, var(--salvia-200) 50%, var(--salvia));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.lead {
+  font-size: var(--fs-lead);
+  color: var(--fg-2);
+  max-width: 34ch;
+  margin-top: 1.1em;
+  line-height: 1.45;
+}
+
+/* SplitText: palavras com blur */
+.palavra {
+  display: inline-block;
+  will-change: transform, filter, opacity;
+}
+
+/* ---------- moldura de navegador para prints ---------- */
+.browser {
+  position: relative;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: var(--sombra);
+  overflow: hidden;
+  border: 1px solid rgba(16, 38, 61, 0.08);
+}
+.browser .barra {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 34px;
+  padding: 0 14px;
+  background: #f3f6f9;
+  border-bottom: 1px solid rgba(16, 38, 61, 0.06);
+}
+.browser .barra i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d6dee6;
+}
+.browser .barra span {
+  margin-left: 12px;
+  flex: 1;
+  max-width: 60%;
+  height: 20px;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 11px;
+  color: var(--tinta-2);
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.browser img {
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- interface fixa ---------- */
+.ui {
+  position: fixed;
+  z-index: 50;
+  pointer-events: none;
+  color: var(--tinta);
+  transition: color 0.9s var(--ease);
+}
+/* o motor marca o tom da cena ativa para a interface fixa acompanhar */
+html[data-tone='dark'] .ui {
+  color: #eaf2f8;
+}
+/* logo UnB: colorida nas cenas claras, branca nas escuras (troca suave junto com o tom) */
+.ui-marca {
+  top: 20px;
+  left: clamp(20px, 3vw, 40px);
+  display: grid;
+}
+.ui-marca img {
+  grid-area: 1 / 1;
+  display: block;
+  height: 28px;
+  width: auto;
+  transition: opacity 0.9s var(--ease);
+}
+.ui-marca .branco,
+html[data-tone='dark'] .ui-marca .cor {
+  opacity: 0;
+}
+html[data-tone='dark'] .ui-marca .branco {
+  opacity: 1;
+}
+.ui-contador {
+  top: 24px;
+  right: clamp(20px, 3vw, 40px);
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+}
+.ui-contador span {
+  opacity: 0.45;
+  font-weight: 500;
+}
+.ui-trilho {
+  right: clamp(16px, 2.4vw, 34px);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-end;
+}
+.ui-trilho li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.ui-trilho li span {
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+  white-space: nowrap;
+}
+.ui-trilho li i {
+  width: 14px;
+  height: 3px;
+  border-radius: 3px;
+  background: currentColor;
+  opacity: 0.3;
+  transition: width 0.6s var(--ease), opacity 0.6s var(--ease), background-color 0.6s;
+}
+.ui-trilho li.ativo i {
+  width: 34px;
+  opacity: 1;
+  background: var(--salvia);
+}
+.ui-trilho li.ativo span {
+  opacity: 0.9;
+  transform: none;
+}
+.ui-progresso {
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background: var(--salvia);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+}
+.ui-dica {
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.ui-dica i {
+  width: 22px;
+  height: 36px;
+  border: 2px solid currentColor;
+  border-radius: 12px;
+  position: relative;
+}
+.ui-dica i::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 7px;
+  width: 4px;
+  height: 7px;
+  margin-left: -2px;
+  border-radius: 2px;
+  background: currentColor;
+  animation: rolar 1.8s var(--ease) infinite;
+}
+@keyframes rolar {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .ui-trilho {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* palavras divididas dentro de <em>: o degradê precisa ir em cada palavra,
+   senão o background-clip do pai não pinta filhos com transform/filter */
+em .palavra {
+  background: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: 0.08em;
+}

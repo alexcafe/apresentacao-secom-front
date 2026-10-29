@@ -1,0 +1,48 @@
+:root {
+  /* marca UnB (Pantone 654 / 348) + derivados suaves */
+  --azul: #003366;
+  --azul-700: #0a4a85;
+  --verde: #006633;
+  --verde-600: #1f8a55;
+  --noite: #0b1f33;
+  --noite-2: #10294a;
+  --salvia: #4fb3a0;
+  --salvia-200: #a8dccf;
+  --nevoa: #eef4f8;
+  --menta: #e7f3ec;
+  --branco: #ffffff;
+  --tinta: #10263d;
+  --tinta-2: #4a6178;
+
+  --grad-marca: linear-gradient(120deg, var(--azul) 0%, var(--azul-700) 35%, var(--verde-600) 75%, var(--salvia) 100%);
+
+  --font: 'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  --fs-eyebrow: clamp(0.72rem, 0.65rem + 0.25vw, 0.9rem);
+  --fs-body: clamp(1rem, 0.9rem + 0.35vw, 1.3rem);
+  --fs-lead: clamp(1.15rem, 1rem + 0.6vw, 1.6rem);
+  --fs-h2: clamp(2.2rem, 1.4rem + 3.2vw, 4.6rem);
+  --fs-h1: clamp(2.8rem, 1.6rem + 5.4vw, 7.2rem);
+
+  --r-lg: 40px;
+  --r-md: 28px;
+  --r-sm: 16px;
+
+  --sombra: 0 30px 80px -30px rgba(11, 31, 51, 0.35), 0 8px 24px -12px rgba(11, 31, 51, 0.18);
+  --sombra-escura: 0 30px 80px -20px rgba(0, 0, 0, 0.55);
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* tom padrão das cenas claras; .scene[data-tone=dark] sobrescreve */
+  --bg: var(--nevoa);
+  --fg: var(--tinta);
+  --fg-2: var(--tinta-2);
+  --linha: rgba(16, 38, 61, 0.12);
+}
+
+.scene[data-tone='dark'] {
+  --fg: #eaf2f8;
+  --fg-2: #9fb6cb;
+  --linha: rgba(234, 242, 248, 0.14);
+}
+

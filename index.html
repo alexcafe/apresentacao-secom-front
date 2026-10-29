@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="pt-BR" data-tone="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Do Joomla ao WordPress · Secom UnB</title>
+    <meta name="description" content="Apresentação de introdução ao WordPress, Gutenberg e Elementor para planejar a migração dos sites da Secom/UnB." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23003366'/%3E%3Cstop offset='1' stop-color='%234fb3a0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='10' fill='url(%23g)'/%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <!-- interface fixa -->
+    <div class="ui ui-marca"><img class="cor" src="/marca/unb.png" alt="Universidade de Brasília" width="988" height="252" /><img class="branco" src="/marca/unb-branco.png" alt="" width="988" height="252" /></div>
+    <div class="ui ui-contador"><b data-ui="atual">01</b> <span>/ <b data-ui="total">00</b></span></div>
+    <ul class="ui ui-trilho" aria-label="Capítulos"></ul>
+    <div class="ui ui-progresso"></div>
+    <div class="ui ui-dica"><i></i>role ou use as setas</div>
+
+    <div class="ambiente" aria-hidden="true">
+      <div class="halo h1"></div>
+      <div class="halo h2"></div>
+      <div class="halo h3"></div>
+      <svg class="formas"></svg>
+    </div>
+
+    <!--
+      Cada <section class="scene"> é uma cena. O motor (src/main.js) lê:
+      data-scene (módulo em src/scenes), data-tone (dark | light | menta), data-chapter,
+      data-steps / data-passo / data-stops / data-hold (rolagem e paradas do teclado).
+      Cenas escuras e menta ganham bordas em onda automaticamente.
+    -->
+    <main>
+      <!-- ============ CAPÍTULO 1 · FUNDAMENTOS ============ -->
+
+      <!-- Abertura -->
+      <section class="scene hero" data-scene="hero" data-tone="dark" data-chapter="Fundamentos" data-hold="1">
+        <div class="stage">
+          <canvas aria-hidden="true"></canvas>
+          <div class="hero-texto">
+            <span class="eyebrow">Secom · Universidade de Brasília</span>
+            <h1 data-reveal>Do Joomla ao <em>WordPress</em></h1>
+            <p class="lead">Onde estamos, para onde vamos e o que muda no dia a dia de quem publica nos sites da Secom.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Onde estamos -->
+      <section class="scene polaroids" data-scene="polaroids" data-tone="light" data-chapter="Fundamentos" data-steps="3" data-stops="0,0.47,0.93">
+        <div class="stage">
+          <div>
+            <span class="eyebrow">Onde estamos hoje</span>
+            <h2 class="titulo" data-reveal>Quatro portais, <em>um só servidor</em> Joomla</h2>
+            <p class="lead">unb.br, UnB Notícias, UnB Ciência e Revista Darcy convivem hoje no mesmo ambiente — e seguem caminhos visuais diferentes.</p>
+            <span class="selo">Servidor <b>164.41.101.27</b> · Joomla + Bootstrap 4</span>
+          </div>
+          <div class="polaroids-area">
+            <figure class="polaroid browser">
+              <div class="barra"><i></i><i></i><i></i><span>unb.br</span></div>
+              <img src="/prints/joomla-unb.jpg" alt="Página inicial do portal unb.br" />
+              <figcaption>Portal UnB</figcaption>
+            </figure>
+            <figure class="polaroid browser">
+              <div class="barra"><i></i><i></i><i></i><span>noticias.unb.br</span></div>
+              <img src="/prints/joomla-noticias.jpg" alt="Página inicial do UnB Notícias" />
+              <figcaption>UnB Notícias</figcaption>
+            </figure>
+            <figure class="polaroid browser">
+              <div class="barra"><i></i><i></i><i></i><span>unbciencia.unb.br</span></div>
+              <img src="/prints/joomla-unbciencia.jpg" alt="Página inicial do UnB Ciência" />
+              <figcaption>UnB Ciência</figcaption>
+            </figure>
+            <figure class="polaroid browser">
+              <div class="barra"><i></i><i></i><i></i><span>revistadarcy.unb.br</span></div>
+              <img src="/prints/joomla-darcy.jpg" alt="Página inicial da Revista Darcy" />
+              <figcaption>Revista Darcy</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- O que é o WordPress -->
+      <section class="scene numeros" data-scene="numeros" data-tone="dark" data-chapter="Fundamentos" data-hold="0.6">
+        <div class="stage">
+          <div>
+            <span class="eyebrow">O que é</span>
+            <h2 class="titulo" data-reveal>Um CMS livre que move <em>boa parte da web</em></h2>
+            <p class="lead">Criado em 2003, de código aberto (licença GPL), feito em PHP com banco MySQL/MariaDB. Quem publica cuida do conteúdo; o tema cuida da aparência.</p>
+            <div class="stats">
+              <div><strong><span data-contar="39.5">39,5</span>%</strong><small>de todos os sites do mundo</small></div>
+              <div><strong><span data-contar="58.3">58,3</span>%</strong><small>dos sites que usam um CMS</small></div>
+              <div><strong><span data-contar="77">77</span> mil+</strong><small>plugins gratuitos no diretório oficial</small></div>
+              <div><strong><span data-contar="2003" data-sem-milhar>2003</span></strong><small>ano de nascimento</small></div>
+            </div>
+            <p class="fonte">Fontes: W3Techs e WordPress.org, outubro de 2026.</p>
+          </div>
+          <div class="camadas" aria-label="Camadas de um site WordPress">
+            <div class="camada c4"><b>Site publicado</b><span>o que o público vê</span></div>
+            <div class="camada c3"><b>Tema + Elementor</b><span>aparência e layout</span></div>
+            <div class="camada c2"><b>WordPress</b><span>PHP · painel · plugins</span></div>
+            <div class="camada c1"><b>Banco de dados</b><span>MySQL / MariaDB</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Para onde vamos -->
+      <section class="scene ganhos" data-scene="cards" data-tone="light" data-chapter="Fundamentos" data-hold="1.4" data-stops="0.93">
+        <div class="stage">
+          <div class="topo-cena">
+            <span class="eyebrow">Para onde vamos</span>
+            <h2 class="titulo" data-reveal>O que o novo ambiente <em>oferece</em></h2>
+          </div>
+          <div class="cards onda-cards">
+            <article class="card"><i>01</i><h3>Publicação direta</h3><p>Quem escreve monta e publica o conteúdo no próprio editor.</p></article>
+            <article class="card"><i>02</i><h3>Padrão visual comum</h3><p>Cores, fontes e modelos definidos uma vez e compartilhados entre os portais.</p></article>
+            <article class="card"><i>03</i><h3>Comunidade ativa</h3><p>Plugins, temas e documentação mantidos por uma comunidade global.</p></article>
+            <article class="card"><i>04</i><h3>Acessibilidade</h3><p>Editor e temas que seguem as boas práticas da WCAG.</p></article>
+            <article class="card"><i>05</i><h3>SEO e desempenho</h3><p>URLs amigáveis, metadados e cache configuráveis.</p></article>
+            <article class="card"><i>06</i><h3>Atualizações contínuas</h3><p>Versões e correções de segurança publicadas com frequência.</p></article>
+            <article class="card"><i>07</i><h3>Já presente na UnB</h3><p>A STI já mantém sites WordPress, com hospedagem e rotinas definidas.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dicionário Joomla → WordPress -->
+      <section class="scene dicionario" data-scene="dicionario" data-tone="menta" data-chapter="Fundamentos" data-hold="1.6" data-stops="0.93">
+        <div class="stage">
+          <div>
+            <span class="eyebrow">Mesmo conceito, outro nome</span>
+            <h2 class="titulo" data-reveal>Dicionário <em>Joomla → WordPress</em></h2>
+            <p class="lead">Quase tudo o que a equipe já conhece tem um equivalente direto.</p>
+          </div>
+          <div class="linhas">
+            <div class="linha"><span class="de">Artigos</span><svg class="seta" viewBox="0 0 120 24" aria-hidden="true"><path d="M2,12 C40,0 80,24 112,12 M104,5 L114,12 L104,19" /></svg><span class="para">Posts</span></div>
+            <div class="linha"><span class="de">Categorias</span><svg class="seta" viewBox="0 0 120 24" aria-hidden="true"><path d="M2,12 C40,0 80,24 112,12 M104,5 L114,12 L104,19" /></svg><span class="para">Categorias e tags</span></div>
+            <div class="linha"><span class="de">Menus e itens de menu</span><svg class="seta" viewBox="0 0 120 24" aria-hidden="true"><path d="M2,12 C40,0 80,24 112,12 M104,5 L114,12 L104,19" /></svg><span class="para">Menus</span></div>
+            <div class="linha"><span class="de">Módulos</span><svg class="seta" viewBox="0 0 120 24" aria-hidden="true"><path d="M2,12 C40,0 80,24 112,12 M104,5 L114,12 L104,19" /></svg><span class="para">Blocos, widgets e modelos</span></div>
+            <div class="linha"><span class="de">Componentes e extensões</span><svg class="seta" viewBox="0 0 120 24" aria-hidden="true"><path d="M2,12 C40,0 80,24 112,12 M104,5 L114,12 L104,19" /></svg><span class="para">Plugins</span></div>
+            <div class="linha"><span class="de">Template</span><svg class="seta" viewBox="0 0 120 24" aria-hidden="true"><path d="M2,12 C40,0 80,24 112,12 M104,5 L114,12 L104,19" /></svg><span class="para">Tema + kit do Elementor</span></div>
+            <div class="linha"><span class="de">Usuários e grupos</span><svg class="seta" viewBox="0 0 120 24" aria-hidden="true"><path d="M2,12 C40,0 80,24 112,12 M104,5 L114,12 L104,19" /></svg><span class="para">Usuários e funções</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tour do painel -->
+      <section class="scene tour" data-scene="tour" data-tone="light" data-chapter="Fundamentos" data-steps="5" data-passo="0.6">
+        <div class="stage">
+          <div>
+            <span class="eyebrow">O painel (wp-admin)</span>
+            <h2 class="titulo" data-reveal>Tudo em <em>um só lugar</em></h2>
+            <ol class="passos">
+              <li data-x="12" data-y="1.6" data-z="1.7"><b>Barra superior</b>Atalho para criar conteúdo, ver o site e acessar o perfil.</li>
+              <li data-x="6" data-y="38" data-z="1.5"><b>Menu lateral</b>Posts, mídia, páginas, aparência e plugins — conforme a função.</li>
+              <li data-x="40" data-y="40" data-z="1.2"><b>Painel inicial</b>Caixas com rascunho rápido, novidades e resumos.</li>
+              <li data-x="88" data-y="4.8" data-z="2"><b>Opções de tela</b>Cada pessoa escolhe o que aparece na sua tela.</li>
+              <li data-img="1" data-x="40" data-y="35" data-z="1.15"><b>Listas de conteúdo</b>Busca, filtros, edição rápida e ações em massa.</li>
+            </ol>
+          </div>
+          <div class="tour-palco">
+            <div class="browser">
+              <div class="barra"><i></i><i></i><i></i><span>cafeteste.sites.homologa.unb.br/wp-admin</span></div>
+              <div class="tela"><div class="zoom">
+                <img src="/prints/wp-painel.jpg" alt="Painel do WordPress" />
+                <img src="/prints/wp-posts.jpg" alt="Lista de posts no painel" />
+                <i class="foco"></i>
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CAPÍTULO 2 · CONTEÚDO ============ -->
+
+      <!-- Páginas × Posts -->
+      <section class="scene split" data-scene="split" data-tone="dark" data-chapter="Conteúdo" data-hold="1" data-stops="0.93">
+        <div class="stage">
+          <div class="topo-cena">
+            <span class="eyebrow">Dois tipos de conteúdo</span>
+            <h2 class="titulo" data-reveal>Páginas <em>×</em> Posts</h2>
+          </div>
+          <div class="split-grade">
+            <div class="split-col">
+              <h3>Páginas</h3>
+              <p>Conteúdo institucional e permanente.</p>
+              <ul><li>Organizadas em hierarquia (mãe e filhas)</li><li>Sem data nem categoria</li><li>Ex.: Quem somos, Contato, Serviços</li></ul>
+            </div>
+            <div class="split-meio"><b>Em comum</b><span>editor de blocos · revisões · mídia · SEO · Elementor</span></div>
+            <div class="split-col">
+              <h3>Posts</h3>
+              <p>Conteúdo datado, que forma o fluxo de notícias.</p>
+              <ul><li>Categorias e tags</li><li>Aparecem em listas, arquivos e RSS</li><li>Ex.: notícias, editais, avisos</li></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Criando um post -->
+      <section class="scene tour" data-scene="tour" data-tone="light" data-chapter="Conteúdo" data-steps="7" data-passo="0.55">
+        <div class="stage">
+          <div>
+            <span class="eyebrow">Mão na massa</span>
+            <h2 class="titulo" data-reveal>Criando um <em>post</em></h2>
+            <ol class="passos">
+              <li data-x="40" data-y="21" data-z="1.5"><b>Título e texto</b>Escreva direto na tela, como num documento.</li>
+              <li data-img="1" data-x="11" data-y="40" data-z="1.35"><b>Adicione blocos</b>O botão + abre parágrafos, imagens, listas, vídeos…</li>
+              <li data-img="2" data-x="47" data-y="72" data-z="1.3"><b>Ajuste cada bloco</b>Selecione e use a barra e o painel “Bloco”.</li>
+              <li data-x="91" data-y="30" data-z="1.9"><b>Imagem destacada e resumo</b>Aparecem nas listas e nas redes sociais.</li>
+              <li data-x="91" data-y="60" data-z="1.8"><b>Status e agendamento</b>Rascunho, revisão pendente ou publicação programada.</li>
+              <li data-x="95" data-y="6.4" data-z="2.4"><b>Salvar e publicar</b>Cada salvamento gera uma revisão que pode ser restaurada.</li>
+              <li data-img="3" data-z="1"><b>Resultado no site</b>O tema aplica o visual automaticamente.</li>
+            </ol>
+          </div>
+          <div class="tour-palco">
+            <div class="browser">
+              <div class="barra"><i></i><i></i><i></i><span>Editor de blocos · Post</span></div>
+              <div class="tela"><div class="zoom">
+                <img src="/prints/wp-post-editor.jpg" alt="Editor de blocos com o post de exemplo" />
+                <img src="/prints/wp-post-inseridor.jpg" alt="Inseridor de blocos aberto" />
+                <img src="/prints/wp-post-bloco.jpg" alt="Bloco de imagem selecionado" />
+                <img src="/prints/wp-site-post.jpg" alt="Post publicado no site" />
+                <i class="foco"></i>
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Criando uma página -->
+      <section class="scene tour" data-scene="tour" data-tone="light" data-chapter="Conteúdo" data-steps="5" data-passo="0.55">
+        <div class="stage">
+          <div>
+            <span class="eyebrow">Mão na massa</span>
+            <h2 class="titulo" data-reveal>Criando uma <em>página</em></h2>
+            <ol class="passos">
+              <li data-x="84.6" data-y="12" data-z="1.9"><b>Mesmo editor</b>A aba “Página” troca categorias por atributos de página.</li>
+              <li data-x="88" data-y="61.8" data-z="2"><b>Página ascendente</b>Define a hierarquia: “Guia” fica dentro de “Quem somos”.</li>
+              <li data-x="88" data-y="54.6" data-z="2"><b>Modelo</b>Escolhe o layout: padrão do tema, largura total ou Elementor.</li>
+              <li data-x="88" data-y="47" data-z="2"><b>Slug</b>O endereço da página — pense nele antes de publicar.</li>
+              <li data-img="1" data-x="40" data-y="35" data-z="1.15"><b>Lista de páginas</b>A hierarquia aparece indentada na lista.</li>
+            </ol>
+          </div>
+          <div class="tour-palco">
+            <div class="browser">
+              <div class="barra"><i></i><i></i><i></i><span>Editor de blocos · Página</span></div>
+              <div class="tela"><div class="zoom">
+                <img src="/prints/wp-pagina-editor.jpg" alt="Editor de página com atributos" />
+                <img src="/prints/wp-paginas.jpg" alt="Lista de páginas" />
+                <i class="foco"></i>
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mídia -->
+      <section class="scene tour" data-scene="tour" data-tone="menta" data-chapter="Conteúdo" data-steps="3" data-passo="0.6">
+        <div class="stage">
+          <div>
+            <span class="eyebrow">Biblioteca de mídia</span>
+            <h2 class="titulo" data-reveal>Imagens, PDFs e vídeos <em>num só acervo</em></h2>
+            <ol class="passos">
+              <li data-z="1"><b>Arraste e solte</b>Envio direto pelo navegador, com vários arquivos de uma vez.</li>
+              <li data-z="1.25" data-x="50" data-y="45"><b>Texto alternativo</b>Descreva cada imagem: é acessibilidade e também SEO.</li>
+              <li data-z="1"><b>Tamanhos automáticos</b>O WordPress gera versões otimizadas para cada tela.</li>
+            </ol>
+          </div>
+          <div class="tour-palco">
+            <div class="browser">
+              <div class="barra"><i></i><i></i><i></i><span>Mídia › Biblioteca</span></div>
+              <div class="tela"><div class="zoom">
+                <img src="/prints/wp-midia.jpg" alt="Biblioteca de mídia em grade" />
+                <i class="foco"></i>
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Menus -->
+      <section class="scene tour" data-scene="tour" data-tone="light" data-chapter="Conteúdo" data-steps="5" data-passo="0.55">
+        <div class="stage">
+          <div>
+            <span class="eyebrow">Navegação</span>
+            <h2 class="titulo" data-reveal>Montando <em>menus</em></h2>
+            <ol class="passos">
+              <li data-x="33" data-y="36.7" data-z="1.8"><b>Escolha o menu</b>Um site pode ter vários: principal, rodapé, atalhos.</li>
+              <li data-x="20" data-y="62" data-z="1.5"><b>Adicione itens</b>Páginas, posts, categorias ou links externos.</li>
+              <li data-x="44" data-y="81" data-z="1.6"><b>Arraste para organizar</b>Puxe um item para a direita e ele vira subitem.</li>
+              <li data-x="23" data-y="29.5" data-z="2.2"><b>Posições do tema</b>Diga onde o menu aparece: topo, rodapé, lateral.</li>
+              <li data-x="23.3" data-y="24.8" data-z="2.2"><b>Visualização ao vivo</b>Ou edite pelo Elementor, no cabeçalho do Theme Builder.</li>
+            </ol>
+          </div>
+          <div class="tour-palco">
+            <div class="browser">
+              <div class="barra"><i></i><i></i><i></i><span>Aparência › Menus</span></div>
+              <div class="tela"><div class="zoom">
+                <img src="/prints/wp-menus.jpg" alt="Tela de menus com o Menu Secom" />
+                <i class="foco"></i>
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- O tema (menos ênfase: o Elementor assume boa parte disso depois) -->
+      <section class="scene tema" data-scene="tema" data-tone="menta" data-chapter="Conteúdo" data-steps="5" data-passo="0.45">
+        <div class="stage">
+          <div>
+            <span class="eyebrow">Aparência › Personalizar</span>
+            <h2 class="titulo" data-reveal>O tema: <em>a moldura do site</em></h2>
+            <p class="lead">Todos os sites do nosso modelo usam o Blocksy. Ele cuida da base visual; trocar o tema não apaga o conteúdo.</p>
+            <ol class="passos">
+              <li data-alvo=""><b>Tema pronto</b>Instalado, já entrega um site completo e responsivo.</li>
+              <li data-alvo="0,1,2"><b>Identidade</b>Logo, ícone do site, cores e tipografia de base.</li>
+              <li data-alvo="3,4"><b>Cabeçalho e rodapé</b>Montados por arrastar: posição do menu, busca, redes.</li>
+              <li data-alvo="5,6"><b>Blog e arquivos</b>Grade ou lista, barra lateral e o que cada post mostra.</li>
+              <li data-alvo=""><b>Tema filho</b>Nossos ajustes ficam no blocksy-child e sobrevivem às atualizações do tema.</li>
+            </ol>
+          </div>
+          <div class="tema-palco">
+            <div class="tema-painel" aria-hidden="true">
+              <b>Personalizar</b>
+              <ul>
+                <li>Identidade do site</li>
+                <li>Cores</li>
+                <li>Tipografia</li>
+                <li>Cabeçalho</li>
+                <li>Rodapé</li>
+                <li>Blog</li>
+                <li>Barra lateral</li>
+              </ul>
+            </div>
+            <div class="tema-preview" aria-hidden="true">
+              <header class="tp-topo"><i class="tp-logo"></i><nav><i></i><i></i><i></i><i></i></nav><i class="tp-busca"></i></header>
+              <div class="tp-corpo">
+                <div class="tp-posts">
+                  <article><i></i><b></b><s></s></article>
+                  <article><i></i><b></b><s></s></article>
+                  <article><i></i><b></b><s></s></article>
+                  <article><i></i><b></b><s></s></article>
+                </div>
+                <aside class="tp-lateral"><i></i><i></i><i></i></aside>
+              </div>
+              <footer class="tp-rodape"><i></i><i></i><i></i></footer>
+              <span class="tp-filho">blocksy-child</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Respiro: até aqui / a seguir -->
+      <section class="scene respiro" data-scene="respiro" data-tone="dark" data-chapter="Conteúdo" data-hold="1" data-stops="0.93">
+        <div class="stage">
+          <div class="topo-cena centro">
+            <span class="eyebrow">Respiro</span>
+            <h2 class="titulo" data-reveal>Até aqui, <em>e daqui em diante</em></h2>
+            <p class="lead">Um momento para dúvidas sobre o que já vimos, antes de entrar nos editores.</p>
+          </div>
+          <div class="respiro-mapa">
+            <div class="rm-col rm-feito">
+              <small>Já vimos</small>
+              <ul>
+                <li>O que é o WordPress</li>
+                <li>O painel</li>
+                <li>Páginas e posts</li>
+                <li>Mídia e menus</li>
+                <li>O tema</li>
+              </ul>
+            </div>
+            <div class="rm-ponte" aria-hidden="true">
+              <svg viewBox="0 0 220 140"><path d="M6,70 C50,4 92,4 110,70 S170,136 214,70" /></svg>
+              <span>você está aqui</span>
+            </div>
+            <div class="rm-col rm-proximo">
+              <small>A seguir</small>
+              <ul>
+                <li>Gutenberg</li>
+                <li>Elementor</li>
+                <li>Modelos e componentes</li>
+                <li>Roteiro da migração</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CAPÍTULO 3 · GUTENBERG ============ -->
+
+      <!-- Tudo é bloco -->
+      <section class="scene lego" data-scene="lego" data-tone="menta" data-chapter="Gutenberg" data-hold="1.4" data-stops="0.93">
+        <div class="stage">
+          <div>
+            <span class="eyebrow">Editor de blocos (Gutenberg)</span>
+            <h2 class="titulo" data-reveal>Aqui, <em>tudo é bloco</em></h2>
+            <p class="lead">Cada parágrafo, imagem ou botão é uma peça independente que se move, duplica e reutiliza.</p>
+            <ul class="lego-lista">
+              <li>Título</li>
+              <li>Imagem</li>
+              <li>Parágrafo</li>
+              <li>Colunas</li>
+              <li>Citação</li>
+              <li>Botões</li>
+            </ul>
+          </div>
+          <div class="lego-pagina">
+            <div class="bloco b-titulo"><span>Título</span><i></i><i></i></div>
+            <div class="bloco b-imagem"><span>Imagem</span></div>
+            <div class="bloco b-paragrafo"><span>Parágrafo</span><i></i><i></i><i></i></div>
+            <div class="bloco b-colunas"><span>Colunas</span><div></div><div></div></div>
+            <div class="bloco b-citacao"><span>Citação</span><i></i></div>
+            <div class="bloco b-botoes"><span>Botões</span><a></a><a></a></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recursos do Gutenberg -->
+      <section class="scene tour" data-scene="tour" data-tone="light" data-chapter="Gutenberg" data-steps="5" data-passo="0.55">
+        <div class="stage">
+          <div>
+            <span class="eyebrow">No dia a dia</span>
+            <h2 class="titulo" data-reveal>Gutenberg <em>na prática</em></h2>
+            <ol class="passos">
+              <li data-x="11" data-y="45" data-z="1.3"><b>Inseridor de blocos</b>Busque pelo nome ou digite “/” no texto.</li>
+              <li data-img="1" data-x="11" data-y="45" data-z="1.3"><b>Padrões</b>Seções prontas para inserir e adaptar em segundos.</li>
+              <li data-img="2" data-x="47" data-y="70" data-z="1.25"><b>Bloco selecionado</b>Barra de ferramentas e ajustes de estilo de cada peça.</li>
+              <li data-x="11.5" data-y="6.4" data-z="2.2"><b>Visão em lista</b>A estrutura do documento para navegar e reordenar.</li>
+              <li data-img="3" data-x="19.8" data-y="6.4" data-z="2.3"><b>Ponte para o Elementor</b>O mesmo conteúdo pode ser aberto no construtor visual.</li>
+            </ol>
+          </div>
+          <div class="tour-palco">
+            <div class="browser">
+              <div class="barra"><i></i><i></i><i></i><span>Editor de blocos</span></div>
+              <div class="tela"><div class="zoom">
+                <img src="/prints/wp-post-inseridor.jpg" alt="Inseridor de blocos" />
+                <img src="/prints/wp-post-padroes.jpg" alt="Aba de padrões do inseridor" />
+                <img src="/prints/wp-post-bloco.jpg" alt="Bloco selecionado com barra de ferramentas" />
+                <img src="/prints/wp-post-editor.jpg" alt="Editor com botão Editar com Elementor" />
+                <i class="foco"></i>
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CAPÍTULO 4 · ELEMENTOR ============ -->
+
+      <!-- Elementor: vitrine -->
+      <section class="scene vitrine" data-scene="vitrine" data-tone="dark" data-chapter="Elementor" data-hold="1.2" data-stops="0.93">
+        <div class="stage">
+          <div class="topo-cena centro">
+            <span class="eyebrow">Construtor visual</span>
+            <h2 class="titulo" data-reveal>Elementor: <em>arraste, solte, veja</em></h2>
+            <p class="lead">Você edita a página já com a cara final — sem código e sem adivinhar o resultado.</p>
+          </div>
+          <div class="vitrine-palco">
+            <div class="vitrine-moldura browser">
+              <div class="barra"><i></i><i></i><i></i><span>Editando “Página Inicial” com Elementor</span></div>
+              <img src="/prints/wp-elementor-editor.jpg" alt="Editor do Elementor com a página inicial" />
+            </div>
+            <span class="vitrine-selo s1">Edição visual ao vivo</span>
+            <span class="vitrine-selo s2">Responsivo por dispositivo</span>
+            <span class="vitrine-selo s3">Kit global de estilos</span>
+            <span class="vitrine-selo s4">Theme Builder</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Anatomia do Elementor -->
+      <section class="scene tour" data-scene="tour" data-tone="light" data-chapter="Elementor" data-steps="7" data-passo="0.55">
+        <div class="stage">
+          <div>
+            <span class="eyebrow">Anatomia do editor</span>
+            <h2 class="titulo" data-reveal>Conhecendo <em>a tela</em></h2>
+            <ol class="passos">
+              <li data-x="10" data-y="2.4" data-z="2.2"><b>Barra superior</b>Adicionar, histórico, configurações do site e da página.</li>
+              <li data-x="9" data-y="45" data-z="1.4"><b>Painel de widgets</b>Título, imagem, botão, grade, abas, vídeo e muito mais.</li>
+              <li data-x="60" data-y="45" data-z="1.1"><b>Tela ao vivo</b>Clique em qualquer elemento para editar no lugar.</li>
+              <li data-img="1" data-x="59" data-y="80" data-z="1.6"><b>Contêineres</b>Caixas flexbox e grade que organizam o layout.</li>
+              <li data-img="2" data-x="91" data-y="20" data-z="1.7"><b>Estrutura</b>A árvore da página: arraste, renomeie, oculte.</li>
+              <li data-img="3" data-x="54.5" data-y="2.4" data-z="2.4"><b>Modos de dispositivo</b>Ajustes próprios para desktop, tablet e celular.</li>
+              <li data-x="94" data-y="2.4" data-z="1.8"><b>Publicar</b>Salve como rascunho ou publique; o histórico guarda versões.</li>
+            </ol>
+          </div>
+          <div class="tour-palco">
+            <div class="browser">
+              <div class="barra"><i></i><i></i><i></i><span>Elementor · Página Inicial</span></div>
+              <div class="tela"><div class="zoom">
+                <img src="/prints/wp-elementor-editor.jpg" alt="Editor do Elementor" />
+                <img src="/prints/wp-elementor-estilo.jpg" alt="Contêiner selecionado no Elementor" />
+                <img src="/prints/wp-elementor-navegador.jpg" alt="Painel Estrutura do Elementor" />
+                <img src="/prints/wp-elementor-tablet.jpg" alt="Elementor no modo tablet" />
+                <i class="foco"></i>
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Elementor mutável -->
+      <section class="scene mutavel" data-scene="mutavel" data-tone="menta" data-chapter="Elementor" data-steps="5">
+        <div class="stage">
+          <div>
+            <span class="eyebrow">Elementor · design responsivo</span>
+            <h2 class="titulo" data-reveal>Uma seção, <em>muitas formas</em></h2>
+            <p class="lead">O mesmo conteúdo se adapta a cada tela e muda de identidade com um clique no kit global.</p>
+            <ol class="mut-passos">
+              <li class="ativo">Desktop: grade de três colunas</li>
+              <li>Tablet: destaque em largura total</li>
+              <li>Celular: lista e menu compacto</li>
+              <li>Kit global: novas cores e cantos</li>
+              <li>Kit escuro com carrossel</li>
+            </ol>
+          </div>
+          <div class="mut-palco">
+            <div class="mut-barra" aria-hidden="true">
+              <button data-modo="desktop" class="ativo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="12" rx="2" /><path d="M8 20h8M12 16v4" /></svg></button>
+              <button data-modo="tablet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="3" width="14" height="18" rx="2" /><path d="M11 18h2" /></svg></button>
+              <button data-modo="mobile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="7" y="3" width="10" height="18" rx="2" /><path d="M11 18h2" /></svg></button>
+              <span class="mut-rotulo">Desktop · 1440 px</span>
+            </div>
+            <div class="mut-tela">
+              <div class="device" data-modo="desktop" data-kit="unb">
+                <div class="d-topo">
+                  <b class="d-logo">UnB Secom</b>
+                  <nav><a>Início</a><a>Notícias</a><a>Pesquisa</a><a>Agenda</a><a>Contato</a></nav>
+                  <i class="d-burger"></i>
+                </div>
+                <div class="d-hero">
+                  <div><span>Especial</span><h4>Ciência que transforma o Cerrado</h4></div>
+                  <a class="d-btn">Ler mais</a>
+                </div>
+                <div class="d-cards">
+                  <article class="d-card"><div class="d-img" style="background-image: linear-gradient(135deg, #4fb3a0, #003366)"></div><b>Pesquisa</b><p>Laboratório estuda a baunilha do Cerrado</p></article>
+                  <article class="d-card"><div class="d-img" style="background-image: linear-gradient(135deg, #8fd3ff, #1f8a55)"></div><b>Extensão</b><p>Artes marciais chegam aos quatro campi</p></article>
+                  <article class="d-card"><div class="d-img" style="background-image: linear-gradient(135deg, #a8dccf, #0a4a85)"></div><b>Ensino</b><p>Vestibular indígena abre inscrições</p></article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Theme Builder -->
+      <section class="scene tour" data-scene="tour" data-tone="light" data-chapter="Elementor" data-steps="4" data-passo="0.6">
+        <div class="stage">
+          <div>
+            <span class="eyebrow">Theme Builder (Pro Elements)</span>
+            <h2 class="titulo" data-reveal>O site inteiro <em>a partir de modelos</em></h2>
+            <ol class="passos">
+              <li data-x="60" data-y="25" data-z="1.5"><b>Tipos de modelo</b>Cabeçalho, rodapé, post único, arquivo, busca, erro 404.</li>
+              <li data-x="92.8" data-y="16.3" data-z="2.2"><b>Novo modelo</b>Desenhe uma vez no Elementor; vale para todo o site.</li>
+              <li data-z="1"><b>Condições de exibição</b>Ex.: “este layout para todas as notícias da categoria Pesquisa”.</li>
+              <li data-x="17" data-y="52" data-z="1.8"><b>Popups e elementos flutuantes</b>Avisos, banners de campanha e chamadas.</li>
+            </ol>
+          </div>
+          <div class="tour-palco">
+            <div class="browser">
+              <div class="barra"><i></i><i></i><i></i><span>Elementor › Construtor de temas</span></div>
+              <div class="tela"><div class="zoom">
+                <img src="/prints/wp-theme-builder.jpg" alt="Lista de modelos do Construtor de temas" />
+                <i class="foco"></i>
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modelo de post único com dados do post -->
+      <section class="scene modelo-post" data-scene="modelo" data-tone="menta" data-chapter="Elementor" data-steps="4" data-passo="0.55">
+        <div class="stage">
+          <div>
+            <span class="eyebrow">Theme Builder na prática</span>
+            <h2 class="titulo" data-reveal>Um modelo para <em>todas as notícias</em></h2>
+            <ol class="passos">
+              <li><b>Estrutura</b>Um contêiner com duas colunas: o texto e uma coluna de apoio.</li>
+              <li><b>Tags dinâmicas</b>Cada peça aponta para um dado do post, não para um texto fixo.</li>
+              <li><b>Preenchido pelo post</b>Título, imagem, autor, data, categorias, tags e campos personalizados.</li>
+              <li><b>Condições de exibição</b>Vale para os posts da categoria escolhida, inclusive os que chegarem na migração.</li>
+            </ol>
+          </div>
+          <div class="mp-palco" aria-hidden="true">
+            <div class="browser mp-moldura">
+              <div class="barra"><i></i><i></i><i></i><span>Theme Builder › Post único · Notícia</span></div>
+              <div class="mp-grade">
+                <div class="mp-principal">
+                  <div class="mp-peca mp-cat"><em>Categorias</em><span>Pesquisa</span></div>
+                  <div class="mp-peca mp-titulo"><em>Título do post</em><span>Laboratório estuda a baunilha do Cerrado</span></div>
+                  <div class="mp-peca mp-img"><em>Imagem destacada</em><span></span></div>
+                  <div class="mp-peca mp-texto"><em>Conteúdo do post</em><span><i></i><i></i><i></i><i></i></span></div>
+                </div>
+                <aside class="mp-lateral">
+                  <div class="mp-peca mp-autor"><em>Autor</em><span><i></i>Secom UnB</span></div>
+                  <div class="mp-peca"><em>Data de publicação</em><span>27 de outubro de 2026</span></div>
+                  <div class="mp-peca"><em>Campo · tempo de leitura</em><span>4 min de leitura</span></div>
+                  <div class="mp-peca mp-tags"><em>Tags</em><span><i>cerrado</i><i>baunilha</i><i>pesquisa</i></span></div>
+                  <div class="mp-peca mp-loop"><em>Loop · posts relacionados</em><span><i></i><i></i><i></i></span></div>
+                </aside>
+              </div>
+            </div>
+            <div class="mp-condicao">Exibir em <b>Posts › categoria Notícias</b></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kit global -->
+      <section class="scene tour" data-scene="tour" data-tone="dark" data-chapter="Elementor" data-steps="4" data-passo="0.6">
+        <div class="stage">
+          <div>
+            <span class="eyebrow">Configurações do site</span>
+            <h2 class="titulo" data-reveal>Um kit UnB <em>para todos os sites</em></h2>
+            <ol class="passos">
+              <li data-x="9" data-y="37" data-z="1.9"><b>Cores globais</b>Azul e verde UnB definidos uma única vez.</li>
+              <li data-x="60" data-y="45" data-z="1.25"><b>Guia de estilo ao vivo</b>Veja o efeito antes de salvar.</li>
+              <li data-x="60" data-y="72" data-z="1.3"><b>Fontes globais</b>Títulos, textos e botões com a mesma tipografia.</li>
+              <li data-x="9" data-y="95" data-z="2.2"><b>Salvar e propagar</b>Mudou o kit, mudou o site inteiro — e pode ser exportado.</li>
+            </ol>
+          </div>
+          <div class="tour-palco">
+            <div class="browser">
+              <div class="barra"><i></i><i></i><i></i><span>Elementor › Configurações do site</span></div>
+              <div class="tela"><div class="zoom">
+                <img src="/prints/wp-elementor-global.jpg" alt="Cores e fontes globais do Elementor" />
+                <i class="foco"></i>
+              </div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recursos dinâmicos -->
+      <section class="scene recursos" data-scene="cards" data-tone="light" data-chapter="Elementor" data-hold="1.3" data-stops="0.93">
+        <div class="stage">
+          <div class="topo-cena">
+            <span class="eyebrow">Além do layout</span>
+            <h2 class="titulo" data-reveal>Conteúdo que <em>se monta sozinho</em></h2>
+          </div>
+          <div class="cards onda-cards">
+            <article class="card"><i>Loop</i><h3>Grade de posts</h3><p>Listas de notícias com o visual que quisermos, alimentadas automaticamente.</p></article>
+            <article class="card"><i>Dados</i><h3>Conteúdo dinâmico</h3><p>Título, data, autor e campos personalizados preenchidos sozinhos.</p></article>
+            <article class="card"><i>Popup</i><h3>Popups</h3><p>Avisos e campanhas com regras de quando e onde aparecer.</p></article>
+            <article class="card"><i>Form</i><h3>Formulários</h3><p>Contato e inscrições sem plugin extra.</p></article>
+            <article class="card"><i>Anim</i><h3>Movimento</h3><p>Entradas e efeitos de rolagem com moderação.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modelos e kits -->
+      <section class="scene modelos" data-scene="cards" data-tone="menta" data-chapter="Elementor" data-hold="1.2" data-stops="0.93">
+        <div class="stage">
+          <div class="topo-cena">
+            <span class="eyebrow">Reaproveitar</span>
+            <h2 class="titulo" data-reveal>Desenhe uma vez, <em>use em todos</em></h2>
+            <p class="lead">Seções e páginas salvas como modelo podem ser exportadas e importadas entre os portais.</p>
+          </div>
+          <div class="cards miniaturas">
+            <article class="card"><div class="mini m1"><i></i><i></i><i></i></div><h3>Página de notícia</h3></article>
+            <article class="card"><div class="mini m2"><i></i><i></i><i></i></div><h3>Página de unidade</h3></article>
+            <article class="card"><div class="mini m3"><i></i><i></i><i></i></div><h3>Evento</h3></article>
+            <article class="card"><div class="mini m4"><i></i><i></i><i></i></div><h3>Campanha</h3></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blocos e widgets próprios -->
+      <section class="scene componentes" data-scene="componentes" data-tone="dark" data-chapter="Elementor" data-hold="1.6" data-stops="0.3,0.93">
+        <div class="stage">
+          <div class="topo-cena">
+            <span class="eyebrow">Gutenberg e Elementor</span>
+            <h2 class="titulo" data-reveal>Componentes <em>feitos sob medida</em></h2>
+            <p class="lead">Os dois editores aceitam blocos e widgets próprios, que aparecem ao lado dos que já vêm de fábrica.</p>
+          </div>
+          <div class="comp-grade">
+            <div class="comp-painel">
+              <h3>Blocos · Gutenberg</h3>
+              <div class="comp-itens">
+                <span>Parágrafo</span><span>Imagem</span><span>Título</span><span>Lista</span><span>Colunas</span><span>Botões</span>
+                <span class="proprio">Agenda UnB</span><span class="proprio">Card de notícia</span>
+              </div>
+            </div>
+            <div class="comp-painel">
+              <h3>Widgets · Elementor</h3>
+              <div class="comp-itens">
+                <span>Título</span><span>Imagem</span><span>Botão</span><span>Vídeo</span><span>Abas</span><span>Formulário</span>
+                <span class="proprio">Destaque UnB</span><span class="proprio">Lista de editais</span>
+              </div>
+            </div>
+            <div class="comp-aviso">
+              <b>Precisa ser desenvolvido</b>
+              <p>Cada componente é código: um plugin próprio (PHP e JavaScript/React no Gutenberg; PHP no Elementor), versionado, testado e revisado a cada atualização dos editores.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gutenberg × Elementor -->
+      <section class="scene comparativo" data-scene="comparativo" data-tone="light" data-chapter="Elementor" data-hold="1" data-stops="0.93">
+        <div class="stage">
+          <div>
+            <span class="eyebrow">Quando usar cada um</span>
+            <h2 class="titulo" data-reveal>Gutenberg <em>e</em> Elementor</h2>
+            <p class="lead">Os dois convivem no mesmo site: cada um atende melhor a um tipo de trabalho.</p>
+            <div class="cmp-legenda"><span class="g">Gutenberg</span><span class="e">Elementor</span></div>
+            <p class="cmp-conclusao"><b>Ponto de partida para a conversa:</b> notícias e textos no Gutenberg; páginas especiais, cabeçalho, rodapé e modelos no Elementor.</p>
+          </div>
+          <div class="cmp-tabela">
+            <div class="cmp-linha"><span>Notícias do dia a dia</span><div class="cmp-barra"><i class="g" style="--v: 0.92"></i><i class="e" style="--v: 0.55"></i></div></div>
+            <div class="cmp-linha"><span>Liberdade de layout</span><div class="cmp-barra"><i class="g" style="--v: 0.6"></i><i class="e" style="--v: 0.95"></i></div></div>
+            <div class="cmp-linha"><span>Leveza e desempenho</span><div class="cmp-barra"><i class="g" style="--v: 0.9"></i><i class="e" style="--v: 0.62"></i></div></div>
+            <div class="cmp-linha"><span>Padronização entre sites</span><div class="cmp-barra"><i class="g" style="--v: 0.58"></i><i class="e" style="--v: 0.9"></i></div></div>
+            <div class="cmp-linha"><span>Curva de aprendizado</span><div class="cmp-barra"><i class="g" style="--v: 0.82"></i><i class="e" style="--v: 0.7"></i></div></div>
+            <div class="cmp-linha"><span>Páginas especiais</span><div class="cmp-barra"><i class="g" style="--v: 0.55"></i><i class="e" style="--v: 0.96"></i></div></div>
+            <p class="fonte">Leitura qualitativa da equipe, para orientar a conversa.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CAPÍTULO 5 · MIGRAÇÃO ============ -->
+
+      <!-- Roteiro -->
+      <section class="scene roteiro" data-scene="roteiro" data-tone="light" data-chapter="Migração" data-steps="7" data-passo="0.45">
+        <div class="stage">
+          <div class="topo-cena">
+            <span class="eyebrow">Para onde vamos</span>
+            <h2 class="titulo" data-reveal>Roteiro <em>da migração</em></h2>
+          </div>
+          <div class="roteiro-corpo">
+            <div class="trilha"><i></i></div>
+            <ol class="marcos">
+              <li class="marco" data-titulo="Inventário" data-texto="Levantar páginas, artigos, menus, arquivos e acessos de cada portal — e decidir o que não precisa migrar.">Inventário</li>
+              <li class="marco" data-titulo="Arquitetura de informação" data-texto="Redesenhar menus e hierarquia de páginas pensando em quem visita, não no organograma.">Arquitetura</li>
+              <li class="marco" data-titulo="Kit visual UnB" data-texto="Tema Blocksy + kit do Elementor com cores, fontes e modelos de cabeçalho, rodapé e notícias.">Kit visual</li>
+              <li class="marco" data-titulo="Site-piloto" data-texto="Começar por um portal menor para validar o processo antes de migrar o unb.br.">Piloto</li>
+              <li class="marco" data-titulo="Migração de conteúdo" data-texto="Levar artigos, categorias, imagens e autores para o WordPress, conferindo e organizando o que chega.">Conteúdo</li>
+              <li class="marco" data-titulo="Redirecionamentos e SEO" data-texto="Mapear as URLs antigas para as novas (301) para não perder buscas nem links externos.">Redirecionar</li>
+              <li class="marco" data-titulo="Treinamento e go-live" data-texto="Capacitar a equipe de cada portal, publicar e acompanhar as primeiras semanas.">Go-live</li>
+            </ol>
+            <div class="roteiro-cartao"><b>01</b><h3>Inventário</h3><p></p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cuidados -->
+      <section class="scene cuidados" data-scene="cards" data-tone="menta" data-chapter="Migração" data-hold="1.2" data-stops="0.93">
+        <div class="stage">
+          <div class="topo-cena">
+            <span class="eyebrow">Atenção</span>
+            <h2 class="titulo" data-reveal>Cuidados <em>para não tropeçar</em></h2>
+          </div>
+          <div class="cards onda-cards">
+            <article class="card"><i>URL</i><h3>Links antigos</h3><p>Redirecionar tudo o que já foi divulgado e indexado.</p></article>
+            <article class="card"><i>IMG</i><h3>Imagens e anexos</h3><p>Conferir caminhos, tamanhos e textos alternativos.</p></article>
+            <article class="card"><i>A11Y</i><h3>Acessibilidade</h3><p>Manter contraste, títulos e navegação por teclado.</p></article>
+            <article class="card"><i>CMS</i><h3>Plugins demais</h3><p>Governança: só o necessário, sempre atualizado.</p></article>
+            <article class="card"><i>USR</i><h3>Funções e acessos</h3><p>Editor, autor e colaborador conforme o papel de cada um.</p></article>
+            <article class="card"><i>BKP</i><h3>Backup e homologação</h3><p>Testar antes na homologação; produção só com backup.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Encerramento -->
+      <section class="scene final" data-scene="final" data-tone="dark" data-chapter="Migração" data-hold="0.2">
+        <div class="stage">
+          <canvas aria-hidden="true"></canvas>
+          <div class="final-texto">
+            <span class="eyebrow">Obrigado</span>
+            <h2 class="titulo" data-reveal>Perguntas? <em>Vamos conversar.</em></h2>
+            <p class="lead">Para continuar estudando:</p>
+            <ul class="links">
+              <li>learn.wordpress.org</li>
+              <li>wordpress.org/documentation</li>
+              <li>elementor.com/academy</li>
+              <li>marca.unb.br</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
